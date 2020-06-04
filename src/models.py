@@ -1,7 +1,7 @@
 from flask import Flask, request
 
 class product:
-
+    
     name = ''
     description = ''
     price = 0
