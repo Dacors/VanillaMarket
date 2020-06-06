@@ -1,0 +1,17 @@
+[
+    {
+        "id": 0,
+        "name": "Products",
+        "url": "/products"
+    },
+    {
+        "id": 1,
+        "name": "Stock",
+        "url": "/stock"
+    },
+    {
+        "id": 2,
+        "name": "Tasks",
+        "url": "/tasks"
+    }
+]

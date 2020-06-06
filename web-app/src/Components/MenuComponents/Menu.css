@@ -1,0 +1,5 @@
+.menu{
+    min-height: 100vh !important;
+    -webkit-box-shadow: inset 0px 0px 18px -3px #000000; 
+    box-shadow: inset 0px 0px 18px -3px #000000;
+}
