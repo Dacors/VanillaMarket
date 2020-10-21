@@ -1,10 +1,18 @@
-import React from 'react'
-
+import React, {useState, useEffect}  from 'react'
+import { Modal } from 'react-bootstrap';
+import ModalHeader from 'react-bootstrap/ModalHeader';
 
 const API = process.env.REACT_APP_FLASK_API;
-export const Product = (props) => {
+
+const Product = (props) => {
 
     const{product} = props;
+
+    const [modalState, setModal] = useState(false);
+
+    const handleClose = () => setModal(false);
+    const handleShow = () => setModal(true);
+
 
     const deleteProduct = async (_id) => {
         await fetch(`${API}/product/${_id}`,{
@@ -24,10 +32,16 @@ export const Product = (props) => {
                 <small>Donec id elit non mi porta.</small>
             </button>
             <div className="flex-column pl-2">
-                <button type="button" className="d-flex w-100 btn btn-secondary">modify</button>
+                <button type="button" className="d-flex w-100 btn btn-secondary" onClick={handleShow}>modify</button>
                 <p></p>
                 <button type="button" onClick={() => deleteProduct(product._id)} className="d-flex w-100 btn btn-danger">delete</button>
             </div>
+            <Modal show={modalState} onHide={handleClose}>
+                
+                <ModalHeader closeButton>
+                    Hello Modal {product.name}
+                </ModalHeader>
+            </Modal>   
         </div>
         
     )

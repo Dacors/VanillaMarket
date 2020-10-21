@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
+
 import Product from './Product';
 
 const API = process.env.REACT_APP_FLASK_API;
 
-export const ProductGrid = () => {
+const ProductGrid = () => {
 
     const [products, setProducts] = useState([]);
     const [productsFilter, setProductsFilter] = useState([]);
@@ -25,10 +26,12 @@ export const ProductGrid = () => {
         getProds();
     },[])
 
+    
     return(
         <div className="list-group flex-column">
             <input className="form-control mb-2" onKeyUp={KeyUpFilterHandler} id="SearchInput" type="text" placeholder="Search.."></input>
-            {productsFilter.map((e) => <Product key={e._id} product={e} getProds={getProds}/>)}                
+            {productsFilter.map((e) => <Product key={e._id} product={e} getProds={getProds}/>)}        
+                 
         </div>
     )
     
